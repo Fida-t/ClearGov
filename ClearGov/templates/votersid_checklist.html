@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voter ID - Document Checklist</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f9; padding: 30px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h2 { color: #1e305d; }
+        .doc-item { margin: 10px 0; font-size: 18px; }
+        input[type="checkbox"] { margin-right: 10px; transform: scale(1.2); cursor: pointer; }
+        .progress-bar { width: 100%; background: #e0e4e8; border-radius: 5px; margin: 20px 0; height: 20px; overflow: hidden; }
+        .progress { height: 100%; width: 0%; background: #4a69bd; text-align: center; color: white; line-height: 20px; transition: width 0.3s; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Voter ID Document Checklist</h2>
+
+    <div class="progress-bar">
+        <div class="progress" id="progress">0%</div>
+    </div>
+
+    <form id="checklistForm">
+        <div class="doc-item">
+            <input type="checkbox" class="doc-checkbox" id="doc1">
+            <label for="doc1">Aadhar Card</label>
+        </div>
+        <div class="doc-item">
+            <input type="checkbox" class="doc-checkbox" id="doc2">
+            <label for="doc2">Address Proof</label>
+        </div>
+        <div class="doc-item">
+            <input type="checkbox" class="doc-checkbox" id="doc3">
+            <label for="doc3">Passport Photo</label>
+        </div>
+        <div class="doc-item">
+            <input type="checkbox" class="doc-checkbox" id="doc4">
+            <label for="doc4">Age Proof</label>
+        </div>
+    </form>
+</div>
+
+<script>
+const checkboxes = document.querySelectorAll('.doc-checkbox');
+const progressBar = document.getElementById('progress');
+
+function updateProgress() {
+    const total = checkboxes.length;
+    let checked = 0;
+    checkboxes.forEach(cb => { if(cb.checked) checked++; });
+    const percent = Math.round((checked / total) * 100);
+    progressBar.style.width = percent + '%';
+    progressBar.textContent = percent + '%';
+}
+
+checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+</script>
+
+</body>
+</html>

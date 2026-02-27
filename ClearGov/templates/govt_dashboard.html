@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Government Dashboard - ClearGov</title>
+    <style>
+        :root {
+            --primary-blue: #1e305d;
+            --secondary-blue: #161c2c;
+            --accent-blue: #4a69bd;
+            --bg-light: #f4f6f9;
+            --white: #ffffff;
+            --green: #27ae60;
+            --orange: #f39c12;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+        }
+
+        /* Top Navbar */
+        .top-nav {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-nav h2 {
+            margin: 0;
+        }
+
+        .top-nav a button {
+            padding: 8px 15px;
+            background-color: #e74c3c;
+            border: none;
+            border-radius: 5px;
+            color: var(--white);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .top-nav a button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Main Container */
+        .container {
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            flex: 1 1 300px;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        .card h3 {
+            color: var(--primary-blue);
+            margin-top: 0;
+        }
+
+        .card p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .card button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--accent-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .card button:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-nav">
+        <h2>Government Official Dashboard</h2>
+        <a href="{{ url_for('home') }}">
+            <button>Logout</button>
+        </a>
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+            <h3>View Citizen Queries</h3>
+            <p>Check and respond to citizen submitted queries efficiently.</p>
+            <a href="{{ url_for('admin_queries') }}">
+                <button>Open Queries</button>
+            </a>
+        </div>
+
+        
+
+    </div>
+
+</body>
+</html>

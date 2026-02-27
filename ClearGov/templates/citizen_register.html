@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - ClearGov</title>
+    <style>
+        :root {
+            --primary-blue: #1e305d;
+            --secondary-blue: #161c2c;
+            --accent-blue: #4a69bd;
+            --bg-light: #e1e5ec;
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .register-container {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        .register-container h2 {
+            margin-bottom: 30px;
+            color: var(--primary-blue);
+        }
+
+        .register-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .register-container button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: var(--accent-blue);
+            color: var(--white);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .register-container button:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-2px);
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+
+    <h2>Create Account</h2>
+
+    <form method="POST">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="text" name="phone" placeholder="Phone Number" required>
+        <input type="password" name="password" placeholder="Set Password" required>
+        <button type="submit">Register</button>
+    </form>
+
+</div>
+
+</body>
+</html>

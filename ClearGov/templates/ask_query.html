@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ask a Query - ClearGov</title>
+    <style>
+        :root {
+            --primary-blue: #1e305d;
+            --secondary-blue: #161c2c;
+            --accent-blue: #4a69bd;
+            --bg-light: #f4f6f9;
+            --white: #ffffff;
+            --orange: #f39c12;
+            --green: #27ae60;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            padding: 30px 60px;
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        /* Query Form */
+        .box {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: none;
+            background-color: var(--accent-blue);
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-1px);
+        }
+
+        /* Query Cards */
+        .query-card {
+            background-color: var(--white);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        .query-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        .status-pending {
+            color: var(--orange);
+            font-weight: 600;
+        }
+
+        .status-answered {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .answer {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #eef2f3;
+            border-left: 4px solid var(--green);
+            border-radius: 5px;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 20px;
+            }
+
+            .box {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Ask Your Query</h2>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <textarea name="query" placeholder="Type your query here..." rows="5" required></textarea>
+            <button type="submit">Submit Query</button>
+        </form>
+    </div>
+
+    <h2>Your Submitted Queries</h2>
+
+    {% for q in queries %}
+    <div class="query-card">
+        <p><b>Name:</b> {{ q.name }}</p>
+        <p><b>Query:</b> {{ q.query }}</p>
+        <p><b>Status:</b> 
+            {% if q.status == "Pending" %}
+                <span class="status-pending">Pending</span>
+            {% else %}
+                <span class="status-answered">Answered</span>
+            {% endif %}
+        </p>
+
+        {% if q.status == "Answered" %}
+        <div class="answer">
+            <b>Answer:</b> {{ q.answer }}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+</body>
+</html>

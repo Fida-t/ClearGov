@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Government Official Registration - ClearGov</title>
+    <style>
+        :root {
+            --primary-blue: #1e305d;
+            --secondary-blue: #161c2c;
+            --accent-blue: #4a69bd;
+            --bg-light: #f4f6f9;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .register-box {
+            background: var(--white);
+            padding: 30px 40px;
+            width: 360px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .register-box h2 {
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            background-color: var(--accent-blue);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-1px);
+        }
+
+        .login-link {
+            margin-top: 20px;
+            display: block;
+            text-decoration: none;
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-box">
+    <h2>Create Government Account</h2>
+
+    <form method="POST" action="{{ url_for('govt_register') }}">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="text" name="employee_id" placeholder="Mail ID" required>
+        <input type="password" name="password" placeholder="Set Password" required>
+        <button type="submit">Register</button>
+    </form>
+
+    <a href="{{ url_for('govt_login') }}" class="login-link">Already have an account? Log in</a>
+</div>
+
+</body>
+</html>

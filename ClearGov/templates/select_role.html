@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Role - ClearGov</title>
+    <style>
+        /* Color Palette */
+        :root {
+            --primary-blue: #1e305d;
+            --secondary-blue: #161c2c;
+            --accent-blue: #4a69bd;
+            --bg-light: #e1e5ec;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: var(--primary-blue);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--accent-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 500px) {
+            .btn-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Select Role</h1>
+
+    <div class="btn-container">
+        <a href="{{ url_for('citizen_login') }}" class="btn">Citizen</a>
+        <a href="{{ url_for('govt_login') }}" class="btn">Government Official</a>
+    </div>
+</body>
+</html>

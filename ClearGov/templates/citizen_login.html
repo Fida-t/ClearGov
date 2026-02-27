@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Citizen Login - ClearGov</title>
+    <style>
+        :root {
+            --primary-blue: #1e305d;
+            --secondary-blue: #161c2c;
+            --accent-blue: #4a69bd;
+            --bg-light: #e1e5ec;
+            --white: #ffffff;
+            --green: #42b72a;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 30px;
+            color: var(--primary-blue);
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .login-btn {
+            background-color: var(--accent-blue);
+            color: var(--white);
+        }
+
+        .login-btn:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-2px);
+        }
+
+        .register-btn {
+            background-color: var(--green);
+            color: var(--white);
+        }
+
+        .register-btn:hover {
+            background-color: #36a420;
+            transform: translateY(-2px);
+        }
+
+        hr {
+            margin: 25px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+
+    <h2>Citizen Login</h2>
+
+    <form method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit" class="login-btn">Log In</button>
+    </form>
+
+    <hr>
+
+    <a href="{{ url_for('citizen_register') }}">
+        <button class="register-btn">Create New Account</button>
+    </a>
+
+</div>
+
+</body>
+</html>

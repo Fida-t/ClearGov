@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voter ID - ClearGov</title>
+    <style>
+        /* Color Palette */
+        :root {
+            --primary-blue: #1e305d;
+            --secondary-blue: #161c2c;
+            --accent-blue: #4a69bd;
+            --bg-light: #e1e5ec;
+            --white: #ffffff;
+            --grey-light: #e0e4e8;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            padding: 15px 40px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background-color: var(--bg-light);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .top-nav button {
+            background-color: var(--accent-blue);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .top-nav button:hover {
+            background-color: var(--secondary-blue);
+        }
+
+        /* Layout */
+        .container {
+            display: flex;
+            min-height: calc(100vh - 60px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding-top: 40px;
+            flex-shrink: 0;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .sidebar a {
+            display: block;
+            margin: 0 20px 15px;
+        }
+
+        .sidebar button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: none;
+            color: var(--white);
+            text-align: left;
+            font-size: 16px;
+            border-radius: 6px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .sidebar button:hover {
+            background-color: var(--secondary-blue);
+            transform: translateX(5px);
+        }
+
+        /* Content */
+        .content {
+            flex: 1;
+            padding: 60px 80px;
+            background-color: var(--bg-light);
+        }
+
+        .content h1 {
+            color: var(--primary-blue);
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            color: var(--accent-blue);
+            font-size: 24px;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .content h3 {
+            color: var(--primary-blue);
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .content ul, .content ol {
+            padding-left: 40px;
+            margin-bottom: 20px;
+        }
+
+        .content li {
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--grey-light);
+            margin: 30px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding-top: 20px;
+            }
+
+            .content {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-nav">
+        <a href="{{ url_for('select_role') }}">
+            <button>Sign In / Register</button>
+        </a>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Our Services </h2>
+
+            <a href="{{ url_for('passport') }}"><button>Passport Services</button></a>
+            <a href="{{ url_for('voters_id') }}"><button>Voter ID Services</button></a>
+            <a href="{{ url_for('drivers_license') }}"><button>Driving License Services</button></a>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <h1>Voter ID Services</h1>
+
+            <h2>Required Documents</h2>
+            <ul>
+                {% for doc in docs %}
+                    <li>{{ doc }}</li>
+                {% endfor %}
+            </ul>
+
+            <h2>Application Steps</h2>
+            <ol>
+                {% for step in process_steps %}
+                    <li>{{ step }}</li>
+                {% endfor %}
+            </ol>
+
+            <h2>Total Cost</h2>
+            <p>{{ cost }}</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
