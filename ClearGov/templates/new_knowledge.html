@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Knowledge Post</title>
+    <style>
+        body { font-family: Arial; background: #f4f6f9; padding: 20px; }
+        .form-box { background: white; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        input, textarea, button { width: 100%; padding: 10px; margin: 8px 0; border-radius: 6px; border: 1px solid #ccc; }
+        button { background-color: #1f3c88; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #163172; }
+    </style>
+</head>
+<body>
+
+<div class="form-box">
+    <h2>Add Your Knowledge</h2>
+    <form method="POST">
+        <input type="text" name="title" placeholder="Post Title" required>
+        <textarea name="content" rows="6" placeholder="Share your tips / knowledge here..." required></textarea>
+        <button type="submit">Submit Post</button>
+    </form>
+</div>
+
+</body>
+</html>
