@@ -12,7 +12,6 @@ citizen_queries = []
 
 
 
-
 # Temporary storage (for hackathon demo)
 users = {}         # citizen users
 govt_users = {}    # government users
@@ -337,4 +336,5 @@ def passport():
 
 
 if __name__ == "__main__":
+
     app.run(debug=True, port=5001)
